@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6fd8a997cb.js" crossorigin="anonymous"></script>
+    <title>HelmGuard the no helmet and number detection app</title>
+    <link rel="stylesheet" href="static/index.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- navbar -->
+    <header>
+        <nav class="nav-bar">
+            <a href="#" class="logo"><img src="" alt="">
+                HelmGuard
+            </a>
+            <a href="#" class="profile"><i class="fa-solid fa-user" style="color: #ffffff;"></i>Robert</a>
+        </nav>
+    </header>\
+    <!-- navbar -->
+    <section class="main">
+        <!-- sidebar -->
+        <aside class="side-bar">
+            <div class="upper">
+                <h5>
+                    MAIN MENU
+                </h5>
+                <ul>
+                    <a href="#" class="home active"><li><img src="static/images/home.png" alt=""> Home</i></li></a>
+                    <a href="#" class="voilation-link"><li><img src="static/images/log.png" alt="">Voilation Log</li></a>
+                </ul> 
+                
+            </div>
+            <div class="lower">
+                <ul>
+                    <a href="#"><li><img src="static/images/logout.png" alt="">Log out</li></a>
+                </ul>
+            </div>
+            
+        </aside>
+        <!-- sidebar -->
+        <!-- main-container -->
+
+        <div class="main-container">
+            <div class="video-container">
+                <img id="video" src="{{ url_for('video_feed') }}">
+            </div>
+            <div class="images-container" id="imagesContainer">
+                <div class="heading">
+                    <h5>Number plates recognized</h5>
+                    <p>Select the vehicle you wish to log by clicking on its number plate below</p>
+                </div>
+                <div class="number-img">
+                    
+                </div>                
+            </div>
+        </div>
+        
+        <div class="voilation-container">
+            <div class="date">
+                <h5>CHOOSE A DATE</h5>
+                <input type="date" id="date-picker" name="voilation-date">           
+            </div>
+            <div class="line"></div>
+            <div class="list">
+                <table>
+                    <!-- table heading -->
+                    <thead>
+                        <tr>
+                            <th>Number Plate</th>
+                            <th>Date recorded </th>
+                            <th>Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <!-- table heading -->
+                    
+                        <tbody id="tbody">
+                            
+                        </tbody>
+                       
+                    
+                    
+                   
+                    
+                </table>
+            </div> 
+            
+        </div>
+        <!-- view details -->
+        <div class="send-mail-container" style="height: 570px;">
+            <div class=""></div>
+            <div class ="Text">
+                 <span class="Top"> VEHICLE OWNERSHIP DETAILS</span>
+                 <hr class="line">
+          
+            </div>
+            <div class="detail-container">
+
+            </div>
+        </div>
+    </section>
+        <!-- main-container -->
+        <!-- overlay -->
+    <div class="onclick-overlay">
+        <!-- form fill -->
+        <div class="number-fill">
+            <i class="fa-solid fa-xmark close-btn" style="color: #ffffff; font-size: 25px; margin-left:425px ;"></i>
+
+                <h4>ENTER THE VEHICLE HERE !</h4>
+            <form method="POST" class="form-container">
+                <div class="drop1">
+                    <label for="zonal-code">Choose Zonal Code</label>
+                    <select style="margin-left: 25px;" name="zone-name">
+                        <option value="BA">BA</option>
+                        <option value="PA">PA</option>
+                        <option value="KA">KA</option>
+                        <option value="MA">MA</option>
+                    </select>
+                </div>
+                <div class="drop1">
+                    <label for="lot-no">Enter Lot Number</label>
+                    <input style="margin-left: 39px;" type="text" class="lot-no" name ="lot-no">
+                </div>
+                <div class="drop1">
+                    <label for="zonal-code">Choose Vehicle Type</label>
+                    <select style="margin-left: 15px;" name="type">
+                        <option value="BA">BA</option>
+                        <option value="PA">PA</option>
+                        <option value="KA">KA</option>
+                        <option value="MA">MA</option>
+                    </select>
+                </div>
+                <div class="drop1">
+                    <label for="lot-no">Enter Vehicle Id </label>
+                    <input type="text"style="margin-left: 55px;" class="lot-no" name="vehicle-id">
+                </div>
+                <input type="submit" class="btn" id="done-btn" value="Done">
+  
+            </form>
+            <!-- form fill -->
+            <!-- <button class="btn" id="done-btn">Done</button> -->
+        </div>
+        <!-- success popup box -->
+        <div class="successful">
+            <i class="fa-solid fa-xmark close-btn" style="color: #ffffff; font-size: 25px; margin-left:425px ;"></i>
+            <h5>VEHICLE ADDED SUCCESSFULLY !</h5>
+            <div class="buttons">
+                <button class="btn" id="add-btn">Add Another</button>
+                <button class="btn2 close-btn" >CANCEL</button>
+                
+            </div>
+        </div>
+    </div>
+    <!-- overlay -->
+</body>
+<script src="/static/scripts.js"></script>
+
+
+</html>
